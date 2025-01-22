@@ -15,29 +15,24 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
-  brand: {
-    type: String,
-    required: true,
-  },
   category: {
     type: Schema.Types.ObjectId,
     ref: "Category",
-  },
-  countInStock: {
-    type: Number,
     required: true,
-    default: 0,
   },
-  images: [
+   rating: {
+    rate: {
+      type: Number,
+    },
+    count: {
+      type: Number,
+    }
+  },
+  image:
     {
       type: String,
       required: true,
     },
-  ],
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
   createdAt: {
     type: Date,
     required: true,

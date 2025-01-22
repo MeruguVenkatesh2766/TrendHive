@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { addNewUser } from "../../slices/userSlice";
+import { addNewUser } from "../../store/slices/userSlice";
 import { useFormChange } from "../../utils/hooks";
 import fetchStates from "../../utils/fetchStates";
 

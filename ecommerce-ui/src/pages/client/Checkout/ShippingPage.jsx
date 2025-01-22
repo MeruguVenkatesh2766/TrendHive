@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { addPrevLocation } from "../../../slices/locationSlice";
+import { addPrevLocation } from "../../../store/slices/locationSlice";
 import { useFormChange } from "../../../utils/hooks";
-import { updateUserInfo } from "../../../slices/userSlice";
+import { updateUserInfo } from "../../../store/slices/userSlice";
 import fetchStates from "../../../utils/fetchStates";
 
 import Layout from "./Layout";

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { selectLoginUser } from "../../../slices/userSlice";
-import { selectProductById, updateProduct } from "../../../slices/productSlice";
+import { selectLoginUser } from "../../../store/slices/userSlice";
+import { selectProductById, updateProduct } from "../../../store/slices/productSlice";
 import {
   selectAllCategories,
   getAllCategories,
-} from "../../../slices/categorySlice";
+} from "../../../store/slices/categorySlice";
 import { useFormChange } from "../../../utils/hooks";
 import fetchStates from "../../../utils/fetchStates";
 

@@ -5,9 +5,9 @@ import {
   selectAllProducts,
   getAllProducts,
   deleteProduct,
-} from "../../../slices/productSlice";
-import { selectLoginUser } from "../../../slices/userSlice";
-import { updateWithProductRemoved } from "../../../slices/categorySlice";
+} from "../../../store/slices/productSlice";
+import { selectLoginUser } from "../../../store/slices/userSlice";
+import { updateWithProductRemoved } from "../../../store/slices/categorySlice";
 import fetchStates from "../../../utils/fetchStates";
 import formatCurrency from "../../../utils/formatCurrency";
 

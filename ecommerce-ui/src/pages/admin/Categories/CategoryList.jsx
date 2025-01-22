@@ -5,7 +5,7 @@ import {
   selectAllCategories,
   getAllCategories,
   deleteCategory,
-} from "../../../slices/categorySlice";
+} from "../../../store/slices/categorySlice";
 import fetchStates from "../../../utils/fetchStates";
 
 import styled from "styled-components";

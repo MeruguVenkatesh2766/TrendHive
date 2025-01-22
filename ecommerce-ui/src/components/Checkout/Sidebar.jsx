@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import formatCurrency from "../../utils/formatCurrency";
-import { createOrder } from "../../slices/orderSlice";
-import { clearCart } from "../../slices/cartSlice";
+import { createOrder } from "../../store/slices/orderSlice";
+import { clearCart } from "../../store/slices/cartSlice";
 
 import styled from "styled-components";
 import { COLORS } from "../../styles/constants";

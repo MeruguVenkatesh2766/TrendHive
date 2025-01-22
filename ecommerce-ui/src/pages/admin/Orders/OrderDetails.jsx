@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 import formatCurrency from "../../../utils/formatCurrency";
-import { selectOrderById, updateOrderStatus } from "../../../slices/orderSlice";
-import { selectLoginUser } from "../../../slices/userSlice";
+import { selectOrderById, updateOrderStatus } from "../../../store/slices/orderSlice";
+import { selectLoginUser } from "../../../store/slices/userSlice";
 import fetchStates from "../../../utils/fetchStates";
 
 import styled from "styled-components";

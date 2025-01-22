@@ -4,7 +4,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import {
   selectCategoryById,
   updateCategory,
-} from "../../../slices/categorySlice";
+} from "../../../store/slices/categorySlice";
 import { useFormChange } from "../../../utils/hooks";
 import fetchStates from "../../../utils/fetchStates";
 

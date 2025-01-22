@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useFormChange } from "../../utils/hooks";
 import fetchStates from "../../utils/fetchStates";
-import { userLogin, getUserInfo } from "../../slices/userSlice";
+import { userLogin, getUserInfo } from "../../store/slices/userSlice";
 
 import styled from "styled-components";
 import Layout from "./Layout";

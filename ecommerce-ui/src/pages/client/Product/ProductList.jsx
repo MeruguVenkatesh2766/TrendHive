@@ -5,11 +5,11 @@ import {
   getAllProducts,
   selectProductsByCategory,
   selectProductsByBrand,
-} from "../../../slices/productSlice";
+} from "../../../store/slices/productSlice";
 import {
   selectAllCategories,
   getAllCategories,
-} from "../../../slices/categorySlice";
+} from "../../../store/slices/categorySlice";
 import fetchStates from "../../../utils/fetchStates";
 import { brands } from "../../../utils/data";
 

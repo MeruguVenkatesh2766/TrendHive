@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
       </div>
       <Footer>
         A mock website made with <Emoji>☕</Emoji> by{" "}
-        <TextLink href="https://cyishere.dev">CY</TextLink>.
+        <TextLink href="https://mv-portfolioone.netlify.app/">Venky</TextLink>.
       </Footer>
     </>
   );

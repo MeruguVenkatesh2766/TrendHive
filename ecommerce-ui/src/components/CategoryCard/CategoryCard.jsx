@@ -5,18 +5,18 @@ import { COLORS } from "../../styles/constants";
 
 // `assets/${category}.jpg`
 
-const CategoryCard = ({ children }) => {
+const CategoryCard = ({ children, image, id  }) => {
   const category = children.toLowerCase().trim();
 
   return (
-    <Wrapper category={category} to={`/products?category=${category}`}>
+    <Wrapper category={id} to={`/products?category=${id}`} image={image}>
       <Title>{children}</Title>
     </Wrapper>
   );
 };
 
 const Wrapper = styled(Link)`
-  background-image: url(${(props) => `assets/${props.category}.jpg`});
+  background-image: url(${(props) => `${props.image}`});
   background-size: cover;
   position: relative;
   grid-area: ${(props) => props.category};
@@ -33,7 +33,7 @@ const Wrapper = styled(Link)`
     position: absolute;
     left: 0;
     top: 0;
-    background-color: ${COLORS.secondary};
+    background-color: ${COLORS.white};
     opacity: 0.4;
   }
 `;

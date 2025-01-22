@@ -5,9 +5,9 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import {
   selectAllCategories,
   updateWithProductAdded,
-} from "../../../slices/categorySlice";
-import { selectLoginUser } from "../../../slices/userSlice";
-import { addNewProduct } from "../../../slices/productSlice";
+} from "../../../store/slices/categorySlice";
+import { selectLoginUser } from "../../../store/slices/userSlice";
+import { addNewProduct } from "../../../store/slices/productSlice";
 import { useFormChange } from "../../../utils/hooks";
 import fetchStates from "../../../utils/fetchStates";
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllUsers, getAllUsers } from "../../../slices/userSlice";
+import { selectAllUsers, getAllUsers } from "../../../store/slices/userSlice";
 import fetchStates from "../../../utils/fetchStates";
 
 import { SubLayout as Layout } from "../../../components/Admin";

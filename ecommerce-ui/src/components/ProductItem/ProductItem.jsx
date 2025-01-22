@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectProductById } from "../../slices/productSlice";
+import { selectProductById } from "../../store/slices/productSlice";
 import formatCurrency from "../../utils/formatCurrency";
 
 import styled from "styled-components";

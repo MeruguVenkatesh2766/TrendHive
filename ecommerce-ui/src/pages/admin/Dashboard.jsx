@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import fetchStates from "../../utils/fetchStates";
-import { getAllProducts, selectAllProducts } from "../../slices/productSlice";
+import { getAllProducts, selectAllProducts } from "../../store/slices/productSlice";
 import {
   getAllCategories,
   selectAllCategories,
-} from "../../slices/categorySlice";
-import { getOrders, selectAllOrders } from "../../slices/orderSlice";
-import { getAllUsers, selectAllUsers } from "../../slices/userSlice";
+} from "../../store/slices/categorySlice";
+import { getOrders, selectAllOrders } from "../../store/slices/orderSlice";
+import { getAllUsers, selectAllUsers } from "../../store/slices/userSlice";
 
 import styled from "styled-components";
 import { Basket, Cube, FileTray, People } from "@styled-icons/ionicons-outline";

@@ -2,8 +2,8 @@ import { useRoutes, Outlet, BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
 import GlobalStyles from "../styles/GlobalStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserInfo } from "../slices/userSlice";
-import { initCart } from "../slices/cartSlice";
+import { getUserInfo } from "../store/slices/userSlice";
+import { initCart } from "../store/slices/cartSlice";
 import AppRoutes from "./routes";
 
 const App = () => {

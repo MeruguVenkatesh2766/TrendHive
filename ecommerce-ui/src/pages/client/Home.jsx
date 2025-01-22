@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllCategories,
   selectAllCategories,
-} from "../../slices/categorySlice";
+} from "../../store/slices/categorySlice";
 
 import styled from "styled-components";
 import { COLORS, VIEWS, BREAKPOINTS } from "../../styles/constants";
@@ -23,7 +23,7 @@ const Home = () => {
     }
   }, [categoryStatus, dispatch]);
 
-  // if (categories.length === 0) return <Loader />;
+  if (categories.length === 0) return <Loader />;
 
   return (
     <Layout>
@@ -31,7 +31,12 @@ const Home = () => {
         <Container>
           <Grid>
             {categories.map((category) => (
-              <CategoryCard key={category.id}>{category.title}</CategoryCard>
+              <CategoryCard
+                image={category.image}
+                id={category.id}
+              >
+                {category.title}
+              </CategoryCard>
             ))}
           </Grid>
         </Container>

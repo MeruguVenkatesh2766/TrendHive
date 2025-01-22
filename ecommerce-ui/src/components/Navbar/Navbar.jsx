@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../../slices/userSlice";
+import { logoutUser } from "../../store/slices/userSlice";
 
 import styled from "styled-components";
 import { COLORS, VIEWS, BREAKPOINTS } from "../../styles/constants";
@@ -61,9 +61,9 @@ const Navbar = () => {
             </NavItem>
           )}
           {navContent}
-          <NavItem>
+          {userId && <NavItem>
             <CartSpot />
-          </NavItem>
+          </NavItem>}
         </NavLinks>
       </Container>
     </Wrapper>

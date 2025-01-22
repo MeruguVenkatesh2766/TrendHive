@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useQtyChange } from "../../utils/hooks";
-import { removeFromCart, updateQty } from "../../slices/cartSlice";
+import { removeFromCart, updateQty } from "../../store/slices/cartSlice";
 
 import styled from "styled-components";
 import { COLORS, BREAKPOINTS } from "../../styles/constants";

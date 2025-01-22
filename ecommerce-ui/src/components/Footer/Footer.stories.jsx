@@ -11,7 +11,7 @@ export default {
 export const Default = () => (
   <Footer>
     A mock website made with <Emoji>☕</Emoji> by{" "}
-    <TextLink href="https://cyishere.dev">CY</TextLink>.
+    <TextLink href="https://mv-portfolioone.netlify.app/">Venky</TextLink>.
   </Footer>
 );
 

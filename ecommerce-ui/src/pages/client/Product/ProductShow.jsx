@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useQtyChange } from "../../../utils/hooks";
-import { selectProductById } from "../../../slices/productSlice";
-import { addToCart } from "../../../slices/cartSlice";
+import { selectProductById } from "../../../store/slices/productSlice";
+import { addToCart } from "../../../store/slices/cartSlice";
 
 import styled from "styled-components";
 import { COLORS, BREAKPOINTS, VIEWS } from "../../../styles/constants";

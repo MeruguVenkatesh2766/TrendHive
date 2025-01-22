@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllOrders, getOrders } from "../../../slices/orderSlice";
+import { selectAllOrders, getOrders } from "../../../store/slices/orderSlice";
 import fetchStates from "../../../utils/fetchStates";
 import formatCurrency from "../../../utils/formatCurrency";
 

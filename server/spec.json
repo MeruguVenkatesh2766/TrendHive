@@ -1,0 +1,92 @@
+{
+    "categories": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["title"],
+          "properties": {
+            "title": {
+              "bsonType": "string",
+              "description": "must be a string and is required"
+            },
+            "image": { "bsonType": "string" },
+            "products": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "objectId"
+              }
+            }
+          }
+        }
+      }
+    },
+    "products": {
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["title", "price", "description", "category", "image", "createdAt"],
+      "properties": {
+            "title": { "bsonType": "string" },
+            "price": { "bsonType": "number" },
+            "description": { "bsonType": "string" },
+            "rating": {
+              "bsonType": "object",
+              "properties": {
+                "rate": { "bsonType": "number" },
+                "count": { "bsonType": "number" }
+              }
+            },
+            "image": { "bsonType": "string" },
+            "category": { "bsonType": "objectId" },
+            "createdAt": { "bsonType": "date" }
+      }
+    }
+    }
+  },
+    "users": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["name", "email", "password", "role", "createdAt"],
+          "properties": {
+            "name": { "bsonType": "string" },
+            "email": { 
+              "bsonType": "string",
+              "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+            },
+            "password": { "bsonType": "string" },
+            "role": { "bsonType": "string" },
+            "address": { "bsonType": "string" },
+            "city": { "bsonType": "string" },
+            "country": { "bsonType": "string" },
+            "zipCode": { "bsonType": "string" },
+            "phone": { "bsonType": "string" },
+            "products": {
+              "bsonType": "array",
+              "items": { "bsonType": "objectId" }
+            },
+            "orders": {
+              "bsonType": "array",
+              "items": { "bsonType": "objectId" }
+            }
+          }
+        }
+      }
+    },
+    "orders": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["number", "createdAt", "value", "status"],
+          "properties": {
+            "number": { "bsonType": "string" },
+            "createdAt": { "bsonType": "date" },
+            "customer": { "bsonType": "objectId" },
+            "products": { "bsonType": "array" },
+            "value": { "bsonType": "number" },
+            "status": { "bsonType": "string" }
+          }
+        }
+      }
+    }
+  }

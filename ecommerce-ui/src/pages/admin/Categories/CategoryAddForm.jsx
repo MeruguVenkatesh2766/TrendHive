@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useFormChange } from "../../../utils/hooks";
-import { addNewCategory } from "../../../slices/categorySlice";
+import { addNewCategory } from "../../../store/slices/categorySlice";
 import fetchStates from "../../../utils/fetchStates";
 
 import { SubLayout as Layout } from "../../../components/Admin";
