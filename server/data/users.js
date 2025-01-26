@@ -4,7 +4,7 @@ const users= [
     {
       name: 'Admin User',
       email: 'admin@example.com',
-      password: 'admin',
+      password: 'admin@123',
       role: 'ADMIN',
       address: '123 Admin St',
       city: 'Admin City',
@@ -18,7 +18,7 @@ const users= [
     {
       name: 'Regular User',
       email: 'user@example.com',
-      password: 'user',
+      password: 'user@123',
       role: USER_ROLE_BASIC,
       address: '456 User St',
       city: 'User City',
