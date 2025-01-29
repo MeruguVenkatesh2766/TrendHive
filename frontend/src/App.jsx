@@ -3,16 +3,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfo } from "./store/slices/userSlice";
 import { initCart } from "./store/slices/cartSlice";
-import AppRoutes from "./AppRoutes"
+import AppRoutes from "./AppRoutes";
 
 const App = () => {
-  const loginUser = useSelector((state) => state.user.loginUser);
+  const isLoggedIn = useSelector((state) => state.user.loginUser);
   const cartItems = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const localUser = localStorage.getItem("digiUser");
-    if (localUser && !loginUser.userId) {
+    if (localUser && !isLoggedIn.userId) {
       dispatch(getUserInfo(JSON.parse(localUser)));
     }
 
@@ -20,13 +20,13 @@ const App = () => {
     if (localCart.length > 0 && cartItems.length === 0) {
       dispatch(initCart(localCart));
     }
-  }, [cartItems, dispatch, loginUser.userId]);
+  }, [cartItems, dispatch, isLoggedIn.userId]);
 
   const authAdmin = useSelector((state) => state.user.loginUser.authAdmin);
 
   return (
     <BrowserRouter>
-      <AppRoutes authAdmin={authAdmin} />
+      <AppRoutes isLoggedIn={isLoggedIn} authAdmin={authAdmin} />
     </BrowserRouter>
   );
 };

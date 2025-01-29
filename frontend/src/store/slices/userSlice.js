@@ -129,6 +129,7 @@ const userSlice = createSlice({
       state.loginUser = {
         userId: null,
         token: null,
+        authAdmin: false,
       };
       state.info = {};
       localStorage.removeItem("digiUser");

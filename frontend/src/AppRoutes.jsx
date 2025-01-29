@@ -1,17 +1,17 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, useRoutes } from "react-router-dom";
+import { Navigate, BrowserRouter as Router, useRoutes } from "react-router-dom";
 
-const ECommerceDashboard = lazy(() => import("./components/dashboard"));
-const DefualtDashboard = lazy(() =>
+const Layout = lazy(() => import("./components/dashboard"));
+const DefaultDashboard = lazy(() =>
   import("./components/dashboard/index").then((mod) => ({
-    default: mod.DefualtDashboard,
+    default: mod.DefaultDashboard,
   }))
 );
 const Products = lazy(() => import("./components/products"));
 const SignIn = lazy(() => import("./components/sign-In"));
 const SignUp = lazy(() => import("./components/sign-up"));
 
-const AppRoutes = () =>
+const AppRoutes = ({ isLoggedIn, authAdmin }) =>
   useRoutes([
     // Routes outside the dashboard
     { path: "/sign-in", element: <SignIn /> },
@@ -20,9 +20,12 @@ const AppRoutes = () =>
     // Dashboard routes
     {
       path: "/",
-      element: <ECommerceDashboard />,
+      element: isLoggedIn ? <Layout /> : <Navigate to="/sign-in" replace />,
       children: [
-        { index: true, element: <DefualtDashboard /> },
+        {
+          index: true,
+          element: <Products />,
+        },
         { path: "products", element: <Products /> },
       ],
     },
@@ -31,10 +34,4 @@ const AppRoutes = () =>
     { path: "*", element: <div>Page Not Found</div> },
   ]);
 
-export default function App() {
-  return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <AppRoutes />
-      </Suspense>
-  );
-}
+export default AppRoutes;
