@@ -27,6 +27,44 @@ const AppRoutes = ({ isLoggedIn, authAdmin }) =>
           element: <Products />,
         },
         { path: "products", element: <Products /> },
+        {
+          path: "trending",
+          element: <Products />,
+          children: [
+            {
+              index: true,
+              element: <Products />,
+            },
+            {
+              path: "best-deals",
+              element: <Products />,
+            },
+            {
+              path: "flash-sales",
+              element: <Products />,
+            },
+          ],
+        },
+        {
+          path: "new-arrivals",
+          element: <Products />,
+          children: [
+            {
+              index: true,
+              element: <Products />,
+            },
+            {
+              path: "exclusive",
+              element: <Products />,
+            },
+            {
+              path: "limited-edition",
+              element: <Products />,
+            },
+          ],
+        },
+        { path: "orders", element: <Products /> },
+        { path: "wishlist", element: <Products /> },
       ],
     },
 

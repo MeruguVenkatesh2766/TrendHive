@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
 import { extendTheme, styled } from "@mui/material/styles";
@@ -35,6 +36,7 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HelpIcon from "@mui/icons-material/Help";
 import TrackChangesIcon from "@mui/icons-material/TrackChanges";
+import { getAllCategories, selectAllCategories } from "../../store/slices/categorySlice";
 
 // Custom Theme
 const demoTheme = extendTheme({
@@ -123,17 +125,9 @@ export default function Layout(props) {
         title: "Shop",
       },
       {
-        segment: "categories",
-        title: "Shop by Category",
+        segment: "products",
+        title: "Products",
         icon: <CategoryIcon />,
-        children: [
-          { segment: "electronics", title: "Electronics" },
-          { segment: "fashion", title: "Fashion" },
-          { segment: "home-kitchen", title: "Home & Kitchen" },
-          { segment: "books", title: "Books" },
-          { segment: "beauty", title: "Beauty & Personal Care" },
-          { segment: "sports", title: "Sports & Outdoors" },
-        ],
       },
       {
         segment: "trending",
@@ -210,7 +204,7 @@ export default function Layout(props) {
     []
   );
   // const router = useDemoRouter('/');
-  const [session, setSession] = React.useState({
+  const [session, setSession] = useState({
     user: {
       name: "Bharat Kashyap",
       email: "bharatkashyap@outlook.com",

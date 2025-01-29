@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import CustomSelect from "./CustomSelect";
+import CustomTabs from "./CustomTabs";
 import {
   Grid,
   Card,
@@ -11,17 +12,35 @@ import {
   CircularProgress,
   Button,
   CardActionArea,
+  TextField,
 } from "@mui/material";
 import {
   getAllProducts,
   selectAllProducts,
 } from "../../store/slices/productSlice";
+import {
+  getAllCategories,
+  selectAllCategories,
+} from "../../store/slices/categorySlice";
 
 const ProductsPage = () => {
   const products = useSelector(selectAllProducts);
-  console.log("PRODUCTS", products);
+  const categories = useSelector(selectAllCategories);
   const productsStatus = useSelector((state) => state.product.status);
+  const categoryStatus = useSelector((state) => state.category.status);
+  const [filteredProducts, setFilteredProducts] = useState(products);
   const [error, setError] = useState(null);
+
+  const tabsArr = useMemo(() => ["all", ...categories.map((e) => e.title)], []);
+  const [tabsValue, setTabsValue] = useState(0);
+  const handleChangeTabsValue = (event, newValue) => {
+    setTabsValue(newValue);
+  };
+
+  const [searchValue, setSearchValue] = useState("");
+  const handleChangeSearchValue = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   const dispatch = useDispatch();
 
@@ -32,6 +51,30 @@ const ProductsPage = () => {
       setError("Failed to load products.");
     }
   }, [productsStatus, dispatch]);
+
+  useEffect(() => {
+    if (categoryStatus === "idle") {
+      dispatch(getAllCategories());
+    }
+  }, [categoryStatus, dispatch]);
+
+  useEffect(() => {
+    if (tabsValue == 0)
+      setFilteredProducts(
+        products.filter((product) =>
+          product["title"].toLowerCase().includes(searchValue.toLowerCase())
+        )
+      );
+    else {
+      setFilteredProducts(
+        products.filter(
+          (product) =>
+            categories.find((cat) => cat["id"] == product["category"])?.title ==
+            tabsArr[tabsValue]
+        )
+      );
+    }
+  }, [tabsValue, searchValue]);
 
   if (!productsStatus) {
     return (
@@ -62,9 +105,27 @@ const ProductsPage = () => {
   }
 
   return (
-    <Box sx={{ flexGrow: 1, padding: 2 }}>
+    <Box sx={{ flexGrow: 1, padding: 2, paddingTop: 0 }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
+        <CustomTabs
+          options={tabsArr}
+          tabsValue={tabsValue}
+          handleChangeTabsValue={handleChangeTabsValue}
+        />
+        {/* <CustomSelect options={categories.map(e=>e.title)}/> */}
+        <TextField
+        sx={{width:'30%'}}
+          id="outlined-basic"
+          size="small"
+          label="Search product"
+          variant="outlined"
+          value={searchValue}
+          onChange={handleChangeSearchValue}
+        />
+      </Box>
       <Grid container spacing={3} alignItems="stretch">
-        {products.map((product) => (
+        {console.log("FILTPRODS", filteredProducts)}
+        {filteredProducts.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <Card
               sx={{
